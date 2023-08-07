@@ -50,7 +50,7 @@ it('Register Now', () => {
     cy.get('.flex > div.relative > .rounded-md').select('India');
   
     // Type the contact number
-    cy.get(':nth-child(1) > .flex > input.rounded-md').type('9887878603');
+    cy.get(':nth-child(1) > .flex > input.rounded-md').type('9887878604');
   
     // Wait for 1 second to ensure the previous action is completed
     cy.wait(1000);
@@ -59,7 +59,7 @@ it('Register Now', () => {
     cy.get('input[name="jobTitle"]').type('Quality Analyst');
   
     // Type the business email
-    cy.get('input[name="businessEmail"]').type('siyonkurane@gmail.com');
+    cy.get('input[name="businessEmail"]').type('siyonkurane79@gmail.com');
   
     // Select 'English' from the language dropdown menu
     cy.get(':nth-child(4) > .flex > div.w-full > div.relative > .rounded-md').select('English');
