@@ -13,9 +13,13 @@ it('Register Now', () => {
   
     // Click on the button to start the registration process
     cy.get('.max-w-screen-xl > .gap-6 > .flex > .px-4').should('be.visible').click({ force: true });
+
+    //Assertion to check whether Click on Next step is directed to the 'About company' Page
+    cy.wait(1000);
+    cy.contains('About company').should("be.visible");
   
     // Locate the input field for the company name and type 'Polymerize'
-    cy.get('input[name="companyName"]').type('Polymerize');
+    cy.get('input[name="companyName"]').type('Polymerize.io');
   
     // Click on the date picker input to select a date
     cy.get('.react-datepicker__input-container > .w-full').click();
@@ -37,12 +41,16 @@ it('Register Now', () => {
   
     // Click on the button with text 'Next Step' to proceed further
     cy.contains('Next Step').click();
+
+    //Assertion to check whether Click on Next step is directed to the 'Contact Information' Page
+    cy.wait(1000);
+    cy.contains('Contact information').should("be.visible");
   
     // Contact Information
     cy.get('.flex > div.relative > .rounded-md').select('India');
   
     // Type the contact number
-    cy.get(':nth-child(1) > .flex > input.rounded-md').type('9988776658');
+    cy.get(':nth-child(1) > .flex > input.rounded-md').type('9887878603');
   
     // Wait for 1 second to ensure the previous action is completed
     cy.wait(1000);
@@ -51,14 +59,18 @@ it('Register Now', () => {
     cy.get('input[name="jobTitle"]').type('Quality Analyst');
   
     // Type the business email
-    cy.get('input[name="businessEmail"]').type('rohit1@gmail.com');
+    cy.get('input[name="businessEmail"]').type('siyonkurane@gmail.com');
   
     // Select 'English' from the language dropdown menu
     cy.get(':nth-child(4) > .flex > div.w-full > div.relative > .rounded-md').select('English');
   
     // Click on the button with text 'Next Step' to proceed further
     cy.contains('Next Step').click();
-  
+
+    //Assertion to check whether Click on Next step is directed to the 'Expectations and challenge' Page
+    cy.wait(1000);
+    cy.contains('Expectations and challenges').should("be.visible");
+
     // Expectations and challenges
     cy.get('div.w-full > div.relative > .rounded-md').select('0-20');
   
@@ -71,6 +83,9 @@ it('Register Now', () => {
     // Click on the button with text 'Submit' to complete the registration
     cy.contains('Submit').should('exist').click();
 
-
+    //Should get this message after successful registration with assertion.
+    cy.wait(2000);
+    const successMessage = "Registration successful!";
+    cy.contains(successMessage).should("be.visible");
 
   });
